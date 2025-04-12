@@ -1,0 +1,291 @@
+:root {
+    --bg-main: #ffffff;
+    --bg-secondary: #f8f8f8;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e5e5e5;
+    --accent-blue: #1a73e8;
+    --accent-blue-light: #e8f0fe;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo:hover {
+    color: var(--accent-blue);
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-main);
+    border-right: 1px solid var(--border-color);
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+}
+
+/* Chat History */
+.chat-history {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 1.5rem;
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    position: relative;
+}
+
+.user-message {
+    margin-left: auto;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius) var(--radius) 0 var(--radius);
+}
+
+.ai-message {
+    margin-right: auto;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius) var(--radius) var(--radius) 0;
+}
+
+/* Blue accent on hover */
+.message:hover {
+    border-left: 3px solid var(--accent-blue);
+}
+
+/* Input Area */
+.input-area {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-main);
+    position: relative;
+}
+
+.input-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+}
+
+.input-field {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--bg-main);
+    box-shadow: var(--shadow-sm);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.submit-btn {
+    padding: 0.875rem 1.5rem;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.submit-btn:hover {
+    background-color: var(--bg-secondary);
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+.submit-btn:active {
+    background-color: var(--accent-blue-light);
+}
+
+/* Sidebar Elements */
+.new-chat-btn {
+    margin: 0.5rem 1rem 1.5rem;
+    padding: 0.75rem;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.new-chat-btn:hover {
+    background-color: #0d5bba;
+}
+
+.conversation-item {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin: 0.125rem 0;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.conversation-item:hover {
+    background-color: var(--bg-secondary);
+    color: var(--accent-blue);
+}
+
+.conversation-item.active {
+    background-color: var(--accent-blue-light);
+    color: var(--accent-blue);
+    border-left: 3px solid var(--accent-blue);
+    font-weight: 500;
+}
+
+/* Typography */
+.message-content {
+    line-height: 1.7;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Markdown Styles */
+.markdown-content pre {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius);
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-left: 3px solid var(--accent-blue);
+}
+
+.markdown-content code {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.875em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    align-items: center;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.typing-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .message {
+        max-width: 90%;
+    }
+    
+    .input-form {
+        flex-direction: column;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+}
